@@ -1,0 +1,435 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 120vh;
+    background: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.menu {
+    width: 250px;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+    .menu h2 {
+        margin: 0;
+        font-size: 20px;
+        color: #333;
+    }
+
+.search input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.tasks, .lists {
+    margin-top: 20px;
+}
+
+    .tasks h3, .lists h3 {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #333;
+    }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-item, .list-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    color: black;
+}
+
+    .task-item i {
+        margin-right: 10px;
+    }
+
+    /* Different colors for each icon */
+    .task-item[data-content="all-tasks"] i {
+        color: #4CAF50; /* Green */
+    }
+
+    .task-item[data-content="today-tasks"] i {
+        color: #FF5722; /* Deep Orange */
+    }
+
+    .task-item[data-content="calendar-tasks"] i {
+        color: #2196F3; /* Blue */
+    }
+
+    .task-item[data-content="sticky-wall-tasks"] i {
+        color: #FFC107; /* Amber */
+    }
+
+    .list-item[data-content="personal-tasks"] i {
+        color: #9C27B0; /* Purple */
+    }
+
+    .list-item[data-content="work-tasks"] i {
+        color: #3F51B5; /* Indigo */
+    }
+
+    .list-item[data-content="location-tasks"] i {
+        color: #009688; /* Teal */
+    }
+
+.settings-item i {
+    color: #607D8B; /* Blue Grey */
+}
+
+.task-item:hover, .list-item:hover {
+    background: #f5f5f5;
+    border-radius: 5px;
+}
+
+.add-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+    .add-list input {
+        width: 80%;
+        padding: 8px;
+        margin-bottom: 8px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+
+    .add-list button {
+        width: 80%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+        .add-list button:hover {
+            background: #0056b3;
+        }
+
+.settings {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .settings button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 2px;
+        border: none;
+        background: none;
+        color: #000;
+        cursor: pointer;
+        text-align: left;
+        font-size: 14px;
+    }
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .header h1 {
+        margin: 0;
+    }
+
+.add-task {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.task-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.task-color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+    form label {
+        margin-top: 10px;
+    }
+
+    form input, form textarea, form button {
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    form button {
+        background: #007bff;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+        form button:hover {
+            background: #0056b3;
+        }
+        #calendar {
+            height: 100%;
+            padding: 20px;
+
+        }
+
+        #contextMenu {
+            position: absolute;
+            display: none; /* Hidden by default */
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+        .context-menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .context-menu li {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        
+        .context-menu li:hover {
+            background-color: #f0f0f0;
+        }
+
+/* Add this CSS to your existing styles */
+
+.notification-box {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 300px;
+    background: white;
+    color: black;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.notification-box.hidden {
+    transform: translateX(-100%);
+}
+
+.notification-close {
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+
+/* Add this CSS to your existing styles */
+
+.list-item {
+    position: relative;
+}
+
+.list-item .task-count {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+.task-item {
+    position: relative;
+}
+
+.task-item .task-count {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+ /* Basic styling for the context menu */
+ #listContextMenu {
+    position: absolute;
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+}
+#listContextMenu a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #000;
+}
+#listContextMenu a:hover {
+    background-color: #f0f0f0;
+}
+ 
+#calendar {
+    width: 100%;
+    height: 500px; /* Adjust the height as needed */
+    box-sizing: border-box;
+    margin: 0 auto; /* Center the calendar */
+}
+/* Add this to your existing CSS */
+.sticky-note {
+    background: #ffeb3b;
+    border: 1px solid #fbc02d;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    width: 200px;
+    min-height: 100px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+.sticky-note textarea {
+    width: 100%;
+    height: 100px;
+    border: none;
+    background: transparent;
+    resize: none;
+}
+
+.sticky-note .delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+.settings-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.settings-content ul li {
+    margin: 10px 0;
+}
+
+.settings-content ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 16px;
+}
+
+.settings-content ul li a:hover {
+    text-decoration: underline;
+}
+

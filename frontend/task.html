@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles1.css">
+    <title>Task Manager</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <h2>Menu</h2>
+            <div class="search">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="tasks">
+                <h3>Tasks</h3>
+                <ul>
+                    <li class="task-item" data-content="all-tasks"><i class="fa fa-tasks"></i> All Tasks <span class="task-count" id="all-tasks-count"></span></li>
+                    <li class="task-item" data-content="today-tasks"><i class="fa fa-calendar-day"></i> Today <span class="task-count" id="today-tasks-count"></span></li>
+                    <li class="task-item" data-content="calendar-tasks"><i class="fa fa-calendar-alt"></i> Calendar</li>
+                    <li class="task-item" data-content="sticky-wall-tasks"><i class="fa fa-sticky-note"></i> Sticky Wall</li>
+                </ul>
+            </div>
+
+            <div class="lists">
+                <h3>Lists</h3>
+                <ul id="list-container">
+                    <li class="list-item" data-content="personal-tasks"><i class="fa fa-user"></i> Personal <span class="task-count" id="personal-tasks-count"></span></li>
+                    <li class="list-item" data-content="work-tasks"><i class="fa fa-briefcase"></i> Work <span class="task-count" id="work-tasks-count"></span></li>
+                    <li class="list-item" data-content="location-tasks"><i class="fa fa-map-marker-alt"></i> Location Reminders <span class="task-count" id="location-tasks-count"></span></li>
+                </ul>
+                <div class="add-list">
+                    <input type="text" id="new-list-name" placeholder="New List Name">
+                    <button id="add-list-button">+ Add New List</button>
+                    <div id="listContextMenu">
+                        <a href="#" id="deleteList">Delete List</a>
+                    </div>
+                </div>
+            </div>
+            <div class="settings">
+                <button class="settings-item active" data-content="settings-content"><i class="fa fa-cog"></i> Settings</button>
+                <button id="signOutButton"><i class="fa fa-sign-out-alt"></i> Sign out</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div id="settingsContent" class="settings-content" style="display: none;">
+                <h3>Settings</h3>
+                <ul>
+                    <li><a href="#" id="rateUs">Rate Us</a></li>
+                    <li><a href="#" id="privacyPolicy">Privacy Policy</a></li>
+                    <li><a href="#" id="termsOfService">Terms of Service</a></li>
+                    <li><a href="#" id="contactUs">Contact Us</a></li>
+                </ul>
+            </div>
+            <div id="mainContentArea">
+                <div class="header">
+                    <h1>Today</h1>
+                    <button class="add-task">+ Add New Task</button>
+                    
+
+                </div>
+                <div class="task-list">
+                    <ul></ul>
+                </div>
+                <div id="calendar" style="display: none;"></div>
+                <div id="stickyWallContainer" class="sticky-wall-container" style="display: none;">
+                    <button id="addStickyNoteButton">+ Add Sticky Note</button>
+                    <div id="stickyNotesArea"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contextMenu" class="context-menu" style="display:none;">
+        <ul>
+            <li id="editTask">Edit Task</li>
+            <li id="deleteTask">Delete Task</li>
+        </ul>
+    </div>
+
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="taskForm">
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" name="taskName" required>
+                <label for="taskDescription">Task Description:</label>
+                <textarea id="taskDescription" name="taskDescription" required></textarea>
+                <label for="taskDate">Date:</label>
+                <input type="date" id="taskDate" name="taskDate" required>
+                <label for="taskTime">Time:</label>
+                <input type="time" id="taskTime" name="taskTime" required>
+                <label for="taskLocation" style="display:none;">Location:</label>
+                <input type="text" id="taskLocation" name="taskLocation" style="display:none;">
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+    </div>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script1.js"></script>
+    
+</body>
+</html>

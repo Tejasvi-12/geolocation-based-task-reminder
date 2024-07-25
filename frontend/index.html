@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Alert</title>
+    <link rel="stylesheet" href="styles6.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="background"></div>
+    <nav class="navbar">
+        <div class="navbar-brand">Geo Alert</div>
+        <ul class="navbar-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#aboutus">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+    <section id="home" class="home-section">
+        <div class="content-container">
+            <div class="container">
+                <h1>Welcome to Geo Alert</h1>
+                <p>Our app ensures you never forget an important task again, no matter where you are.</p>
+            </div>
+            <div class="info-section">
+                <img src="image1.png" alt="Description Image">
+            </div>
+        </div>
+        <div class="boxes-container">
+            <div class="box">
+                <div class="box-content">
+                    <i class="fas fa-calendar"></i>
+                    <div class="box-text">
+                        <h3>Calendar</h3>
+                        <p>Plan your events</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-content">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="box-text">
+                        <h3>Location</h3>
+                        <p>Find places easily</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-content">
+                    <i class="fas fa-sticky-note"></i>
+                    <div class="box-text">
+                        <h3>Notes</h3>
+                        <p>Keep track of tasks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="aboutus" class="about-us-section">
+        <h2>About Us</h2>
+        <p>Welcome to Geo Alert, the ultimate location-based task reminder. Our mission is to help you stay on top of your tasks and appointments by providing timely reminders based on your location. Whether you need to pick up groceries, attend a meeting, or remember to call a friend when you're near their home, Geo Alert ensures you never miss a beat. Our app integrates seamlessly with your daily routine, making task management effortless and efficient.</p>
+        <img src="image2.png" alt="About Us Image">
+        <p>Experience the convenience of smart reminders with Geo Alert!</p>
+    </section>
+    <section id="services" class="services-section">
+        <div class="services-slider">
+            <div class="services-slide active">
+                <div class="services-text">
+                    <h2>Services</h2>
+                    <h3>Location Reminders</h3>
+                    <p>Geo Alert provides location-based reminders, sending you notifications when you enter or leave specific areas. Stay on top of your tasks effortlessly with our smart reminder system.</p>
+                </div>
+                <div class="services-image">
+                    <img src="gps4.JPG" alt="Service 1 Image">
+                </div>
+            </div>
+            <div class="services-slide">
+                <div class="services-text">
+                    <h2>Services</h2>
+                    <h3>Date and Time Reminders</h3>
+                    <p>We offer reliable date and time reminders to help you stay organized. Whether it's appointments, deadlines, or important events, our service ensures you never miss a crucial moment with timely notifications.</p>
+                </div>
+                <div class="services-image">
+                    <img src="gpss.jpeg" alt="Service 2 Image">
+                </div>
+            </div>
+            <div class="services-slide">
+                <div class="services-text">
+                    <h2>Services</h2>
+                    <h3>Sticky Notes</h3>
+                    <p>Our sticky notes service helps you keep track of tasks and important information effortlessly. With easy-to-create digital notes, you can jot down reminders, ideas, and to-do lists, ensuring you stay organized and on top of your daily tasks.</p>
+                </div>
+                <div class="services-image">
+                    <img src="image3.jpg" alt="Service 3 Image">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="reviews" class="reviews-section">
+        <h2>Reviews</h2>
+        <div class="reviews-container">
+            <div class="review">
+                <p>"Geo Alert has completely transformed the way I manage my tasks. The location-based reminders are a game-changer!" - Jane Doe</p>
+            </div>
+            <div class="review">
+                <p>"The date and time reminders are incredibly useful. I never miss an appointment or deadline anymore." - John Smith</p>
+            </div>
+            <div class="review">
+                <p>"I love the sticky notes feature. It's so convenient to have all my to-do lists and reminders in one place." - Emily Johnson</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need further assistance, feel free to reach out to us. We’re here to help!</p>
+        <form action="#" method="post" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+    // IntersectionObserver for animations
+    const sections = document.querySelectorAll('.about-us-section, .services-section, .reviews-section');
+    
+    const addAnimationClass = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    };
+    
+    const observer = new IntersectionObserver(addAnimationClass, {
+        threshold: 0.3
+    });
+    
+    sections.forEach(section => observer.observe(section));
+
+    // Slider functionality for services
+    const slides = document.querySelectorAll('.services-slide');
+    let currentSlide = 0;
+
+    const showSlide = (index) => {
+        const totalSlides = slides.length;
+        if (index >= totalSlides) index = 0;
+        if (index < 0) index = totalSlides - 1;
+
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+        });
+
+        slides[index].classList.add('active');
+
+        currentSlide = index;
+    };
+
+    // Automatically change slides every 5 seconds
+    setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 5000);
+
+    // Show the first slide initially
+    showSlide(currentSlide);
+});
+    </script>
+</body>
+</html>
